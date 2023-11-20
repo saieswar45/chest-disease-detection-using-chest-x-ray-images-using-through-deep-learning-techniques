@@ -1,0 +1,306 @@
+<html>
+<title>Chest Disease Detection</title>
+	<style>
+		h1 {
+			font-size: 50px;
+			color: white;
+			text-align: center;
+			margin-top: 50px;
+                  margin-bottom: 150px;
+                  font-weight: 200;
+                  font-family: "Open Sans Light", sans-serif;
+		}
+	</style>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+<body>
+	<h1>Chest Disease Detection</h1>
+	<!-- Other content related to Chest Disease Detection goes here -->
+</body>
+<!--<div class="container">
+  <div class="card">
+    <h3>Upload Chest X-ray Image</h3>
+    <div class="drop_box">
+      <header>
+        <h4>Select File here</h4>
+      </header>
+      <p>Files Supported: JPG, JPEG, PNG </p>
+      <input type="file" hidden accept=".jpg,.jpeg,.png" id="fileID" style="display:none;">
+    </div>
+  </div>
+</div>
+-->
+
+<div class="container">
+  <div class="card">
+    <h3>Upload Chest X-ray Image</h3>
+    <div class="drop_box">
+     <header>
+        <h4>Select File here</h4>
+      </header>
+      <p>Files Supported: JPG, JPEG, PNG </p>
+    <!--  <form method="POST" action="{{ url_for('detect') }}" enctype="multipart/form-data">
+         <input type="file" name="file">
+         <br>
+         <input type="submit" value="Upload">
+      <input type="file" hidden accept=".jpg,.jpeg,.png" id="fileID" style="display:none;">
+      </form>
+
+-->
+
+<form method="POST" action="{{ url_for('detect') }}" enctype="multipart/form-data">
+  <label for="fileUpload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> Choose File
+  </label>
+  <input id="fileUpload" type="file" name="file" style="display:none;" />
+  <input type="submit" value="Upload" class="custom-submit" />
+</form>
+
+<style>
+  .custom-file-upload {
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+  }
+
+  .custom-submit {
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #008CBA;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    align: center;
+  }
+</style>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 600px;
+  height: 260px;
+  background-color: #ffffff;
+  padding: 10px 30px 40px;
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  
+}
+
+.drop_box {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+
+.drop_box p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #005af0;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #005af0;
+  padding: 10px 20px;
+  border: none;
+  outline: 1px solid #010101;
+}
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+body {
+    background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
+    background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+    background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+	/*min-height: calc(100vh - 2rem);*/
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-evenly;
+	overflow: hidden;
+	position: relative; 
+}
+
+body::before, 
+body::after {
+	content: "";
+	width: 70vmax;
+	height: 70vmax;
+	position: absolute;
+	background: rgba(255, 255, 255, 0.07);
+	left: -20vmin;
+	top: -20vmin;
+	animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+	z-index: 1;
+	will-change: border-radius, transform;
+	transform-origin: 55% 55%;
+	pointer-events: none; 
+}
+	
+body::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+    transform-origin: 20% 20%; 
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  100% {
+    border-radius: 40% 60%; } 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn); 
+  } 
+}
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{opacity:0.29;}
+	.st3{fill:#FFFFFF;}
+	.st4{clip-path:url(#SVGID_2_);fill:#FFFFFF;}
+	.st5{clip-path:url(#SVGID_4_);}
+	.st6{clip-path:url(#SVGID_6_);}
+	.st7{clip-path:url(#SVGID_8_);}
+	.st8{clip-path:url(#SVGID_10_);}
+	.st9{fill:none;}
+	.st10{clip-path:url(#SVGID_12_);}
+	.st11{opacity:0.7;}
+	.st12{clip-path:url(#SVGID_14_);}
+	.st13{opacity:0.2;}
+	.st14{clip-path:url(#SVGID_16_);}
+	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
+</style>
+
+
+
+<script>
+const dropArea = document.querySelector(".drop_box"),
+  button = dropArea.querySelector("button"),
+  dragText = dropArea.querySelector("header"),
+  input = dropArea.querySelector("input");
+let file;
+var filename;
+
+button.onclick = () => {
+  input.click();
+};
+
+input.addEventListener("change", function (e) {
+  var fileName = e.target.files[0].name;
+  let filedata = `
+    <form method="post" enctype="multipart/form-data" action="{{ url_for('detect') }}">
+    <div class="form">
+    <h4>${fileName}</h4>
+    <button class="btn">Upload</button>
+    </div>
+    </form>`;
+  dropArea.innerHTML = filedata;
+});
+</script>
+</html>

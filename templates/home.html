@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compartible" content="IE=edge">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chest Disease Detection</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+        <style>
+            /* .textarea{
+                width: 250px;
+                height: 250px;
+                background-color: azure;
+                color: black;
+                padding: #666666;
+                padding: 1em;
+                border-radius: 10px;
+                border: 2px solid transparent;
+                outline: rgb(71, 117, 117);
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 1.4;
+                width: 200px;
+                height: 100px;
+                transition: all 0.2s;
+
+            }
+            .textarea:hover{
+                cursor: pointer;
+                background-color: aliceblue;
+            }
+            .textarea:focus{
+                cursor: text;
+                color: #333333;
+                background-color: white;
+                border: 2px solid #333333;
+                
+            } 
+*/
+        </style>
+    </head>
+    <body>
+        <div class="hero">
+
+
+            <video autoplay loop muted plays-inline class="back-video">
+                 <!--<source src="{{ url_for('static', filename='v1.mp4') }}" type="video/mp4">-->
+                 <source src="static/v1.mp4" type="video/mp4">
+            </video>
+            <div class="content">
+                <h1>Chest Disease Detection</h1>
+                <a href="/predict">Start</a>
+            </div>
+        </div>
+        <div class="contain">
+            <div class="bx">
+                <span></span>
+                <div class="cont">
+                <h2>COVID</h2>
+                <p>
+                     COVID‑19 transmits when people breathe air contaminated by droplets and small airborne particles containing the virus. The risk of breathing these is highest when people are in close proximity, but they can be inhaled over longer distances, particularly indoors. Transmission can also occur if contaminated fluids are splashed or sprayed in the eyes, nose, or mouth, or, more rarely, via contaminated surfaces. People remain contagious for up to 20 days and can spread the virus even if they do not develop symptoms.
+                </p>
+                </div>
+            </div>
+            <div class="bx">
+                <span></span>
+                <div class="cont">
+                <h2>PNEUMONIA</h2>
+                <p>
+                    Pneumonia is an inflammatory condition of the lung primarily affecting the small air sacs known as alveoli.Symptoms typically include some combination of productive or dry cough, chest pain, fever, and difficulty breathing.The severity of the condition is variable.Pneumonia is usually caused by infection with viruses or bacteria, and less commonly by other microorganisms. Identifying the responsible pathogen can be difficult..Chest X-rays, blood tests, and culture of the sputum may help confirm the diagnosis
+                </p>
+                </div>
+            </div>
+            <div class="bx">
+                <span></span>
+                <div class="cont">
+                <h2>TUBERCULOSIS</h2>
+                <p>
+                    Tuberculosis (TB) is an infectious disease usually caused by Mycobacterium tuberculosis (MTB) bacteria.Tuberculosis generally affects the lungs, but it can also affect other parts of the body.Most infections show no symptoms, in which case it is known as latent tuberculosis.Around 10% of latent infections progress to active disease which, if left untreated, kill about half of those affected.
+                </p>
+                </div>
+    </div>
+                <div class="bx">
+                <span></span>
+                <div class="cont">
+                <h2>CANCER</h2>
+                <p>
+                    Lung cancer, also known as lung carcinoma, is a malignant tumor that begins in the lung. Lung cancers are caused by genetic damage to the DNA of cells in the airways, often exacerbated by cigarette smoking, or inhaling damaging chemicals. Damaged airway cells sometimes gain the ability to proliferate unchecked, causing the growth of a tumor. Without treatment, lung tumors can spread throughout the lung, damaging lung function. Eventually lung tumors metastasize, spreading to distant parts of the body, and causing varying disease.
+                </p>
+                </div>
+    </div>
